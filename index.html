@@ -21,8 +21,7 @@
 <body>
 
     <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" class="active">
             <div class="sidebar-header">
                 <span id="full"><h3>Spectrum Analyzer</h3><small>v0.1.0-BETA-1</small></span>
                 <div id="shorthand"><strong>SA</strong></div>
@@ -30,34 +29,10 @@
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"  class="dropdown-toggle">
+                    <a id="active-ds-panel-btn" href="#">
                         <i class="fas fa-database"></i>
                         <span>Data Sources</span>
                     </a>
-                    <ul class="collapse list-unstyled components" id="homeSubmenu">
-                        <li>
-                            <a href="#activeDSSubmenu" id="show-active-ds" data-toggle="collapse" aria-expanded="false"  class="dropdown-toggle">
-                                Active Data Sources
-                            </a>
-                            <ul class="collapse list-unstyled" id="activeDSSubmenu">
-                                    <li>
-                                        <button class="btn btn-primary float-right ds-btn">demo3.tmp</button>
-                                    </li>
-                                    <li>
-                                        <button class="btn btn-primary float-right ds-btn">demo3-complex.tmp</button>
-                                    </li>
-                                    <li>
-                                        <button class="btn btn-primary float-right ds-btn">demo3-tuned.tmp</button>
-                                    </li>
-                                </ul>
-                        </li>
-                        <li>
-                            <a href="#">Offset Data Sources</a>
-                        </li>
-                        <li>
-                            <a href="#">Event Boundaries</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
@@ -128,14 +103,28 @@
                 </div>
             </nav>
 
-            <div class="panel-group" id="accordion">
- 
-                <div id="plot" class="panel">
-                    <div class="panel-body">
+            <div class="container-fluid">
+                <div class="content-row">
+                    <div id="active-ds-panel" class="slide-panel">
+                        <div class="panel panel-info">
+                            <div class="panel-header">
+                                <h3>Active Data Sources</h3>
+                            </div>
+                            <div class="panel-body">
+                                    <ul>
+                                        <li>demo3.tmp</li>
+                                        <li>demo3-complex.tmp</li>
+                                        <li>demo3-subbandtuned.tmp</li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="plot-pane">
                         <img src="resources/images/spectrum.png" alt="spectrum image" />
                     </div>
                 </div>
             </div>
+
     </div>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
@@ -155,6 +144,9 @@
             });
             $('#expandApp').on('click', function () {
                 toggleFullScreen();
+            });
+            $('#active-ds-panel-btn').on('click', function() {
+                $('#active-ds-panel').toggleClass('reveal');
             });
         });
     </script>

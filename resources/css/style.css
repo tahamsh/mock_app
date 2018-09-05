@@ -253,14 +253,6 @@ a.article:hover {
     margin: 5px auto;
 }
 
-#plot {
-    padding: 0px 10px;
-}
-
-#plot img {
-    width: 100%;
-}
-
 .profile {
     color: #957777;
 }
@@ -271,6 +263,40 @@ a.article:hover {
     text-align: left;
     position: relative;
     right: 0;
+}
+
+.content-row {
+    display: flex;
+}
+
+.slide-panel {
+    margin: 0px 5px;
+    color: rgb(0, 5, 78);
+    background: rgb(241, 236, 255);
+    width: 150px;
+    top: 0;
+    flex: 0;
+    padding: 0;
+    overflow-y: auto;
+    z-index: 1000;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transition: 300ms ease;
+    transition: 300ms ease;
+}
+
+.reveal {
+    flex: .25;
+}
+
+#plot-pane {
+    flex: 1;
+    padding: 0px 0px;
+}
+
+#plot-pane img {
+    width: 100%;
 }
 
 /* ---------------------------------------------------
